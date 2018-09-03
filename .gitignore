@@ -1,0 +1,10 @@
+*.pyc
+
+*.DS_Store
+__pycache__/
+.vscode/
+.pytest/
+
+.solution.json
+
+.pytest_cache/
