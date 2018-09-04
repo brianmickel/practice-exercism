@@ -2,7 +2,8 @@ class Allergies(object):
 
     def __init__(self, score):
         binary_score = bin(score)
-        is_allergen_array = list(reversed([(score >> bit) & 1 for bit in range(8 - 1, -1, -1)]))
+        bit_array = [(score >> bit) & 1 for bit in [7,6,5,4,3,2,1,0]]
+        is_allergen_array = list(reversed(bit_array))
         potential_allergens = ["eggs",
                                 "peanuts",
                                 "shellfish",
