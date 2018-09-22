@@ -1,0 +1,7 @@
+if (!isStrandValid(dnaStrand)) throw new Error('Invalid input DNA.');
+
+versus
+
+if (!isStrandValid(dnaStrand)) {
+    throw new Error('Invalid input DNA.');
+}
