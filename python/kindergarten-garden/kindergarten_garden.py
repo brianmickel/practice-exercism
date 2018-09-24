@@ -8,9 +8,10 @@ class Garden(object):
     
     def plants(self, student_name):
         p = self.students.index(student_name)*2
-        letters = "".join([row[p:p+2] for row in self.diagram])
-        student_plants = [Plants[l].value for l in letters]
-        return student_plants   
+        return [Plants[l].value
+                for row in self.diagram
+                for l in row[p:p+2]
+                ]
 
 class Plants(enum.Enum):
     V = 'Violets'
