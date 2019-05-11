@@ -7,7 +7,7 @@ class School(object):
         self.students = sorted(self.students)
 
     def roster(self):
-        return [r[1] for r in self.students]
+        return [name for _, name in self.students]
 
     def grade(self, grade_number):
         return [r[1] for r in self.students if r[0]==grade_number]
