@@ -1,0 +1,66 @@
+letterCount 
+for letter of phrase
+    currentletter
+    nextletter
+    if theymatch
+
+
+prevLetter = '';
+letterStartIndex = 0;
+slices = []
+for (let i = 0; i < phrase.length; i++){
+    if (phrase[i] === prevLetter) {
+        continue;
+    } else {
+        slices.push(phrase.slice(letterStartIndex, i));
+    }
+
+}
+
+
+////////
+export default class RunLengthEncoding {
+  static encode(data: string): string {
+    if (data.length === 0) {
+      return data;
+    }
+    if (data.length === 1) {
+      return data;
+    }
+    let encodedData = '';
+
+    let previousLetter = '';
+    let letterCount = 0;
+    let i = 0;
+    while (i < data.length) {
+      const currentLetter = data[i];
+      if (currentLetter === previousLetter) {
+        letterCount += 1;
+      } else if (letterCount === 0 || letterCount === 1) {
+        encodedData += previousLetter;
+        letterCount = 1;
+      } else {
+        encodedData += letterCount.toString();
+        encodedData += previousLetter;
+        letterCount = 1;
+      }
+      previousLetter = currentLetter;
+      i++
+    }
+    if (letterCount !== 1) {
+      encodedData += letterCount.toString();
+    }
+    encodedData += previousLetter;
+    return encodedData;
+  }
+
+  static decode(encodedData: string): string {
+    // let data = '';
+
+    return encodedData;
+  }
+}
+
+// States:
+// New Letter
+// Seen Letter Before
